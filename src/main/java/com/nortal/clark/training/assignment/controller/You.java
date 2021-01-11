@@ -42,8 +42,7 @@ public class You {
                 voiceCommand = new VoiceCommand(Direction.EAST, horizontalSpeedLevel);
             } else {
                 voiceCommand = new VoiceCommand(Direction.NORTH, verticalSpeedLevel);
-            }
-            return voiceCommand;
+            }    
         //rightBottom
         } else if (targetToCapture.y < clark.getPosition().y && targetToCapture.x >= clark.getPosition().x) {
             if (diffX >= diffY) {
@@ -51,7 +50,6 @@ public class You {
             } else {
                 voiceCommand = new VoiceCommand(Direction.SOUTH, verticalSpeedLevel);
             }
-            return voiceCommand;
         //leftTop
         } else if (targetToCapture.x <= clark.getPosition().x && targetToCapture.y > clark.getPosition().y) {
             if (diffX >= diffY) {
@@ -59,7 +57,6 @@ public class You {
             } else {
                 voiceCommand = new VoiceCommand(Direction.NORTH, verticalSpeedLevel);
             }
-            return voiceCommand;
         //leftBottom
         } else if (targetToCapture.y <= clark.getPosition().y && targetToCapture.x < clark.getPosition().x) {
             if (diffX >= diffY) {
@@ -67,10 +64,7 @@ public class You {
             } else {
                 voiceCommand = new VoiceCommand(Direction.SOUTH, verticalSpeedLevel);
             }
-            return voiceCommand;
         }
-
-        
 
         System.out.println(voiceCommand);
         //<<SOLUTION END>>
@@ -83,7 +77,7 @@ public class You {
     private SpeedLevel thinkOfSpeedLevel(int distanceDiff, double speed) {            
         if (distanceDiff <= 50 && distanceDiff >= 10)
             return SpeedLevel.L3_SUPER_SONIC;
-        if (distanceDiff <= 10)
+        if (distanceDiff < 10)
             return SpeedLevel.L2_SUB_SONIC;
         
         return SpeedLevel.L4_MACH_9350;
